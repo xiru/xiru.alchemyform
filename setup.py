@@ -6,7 +6,7 @@ version = '1.0'
 setup(name='xiru.alchemyform',
       version=version,
       description="A CRUD implementation using Plone, SQLAlchemy and z3c.form",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.md").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
