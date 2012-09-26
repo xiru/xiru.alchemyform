@@ -25,6 +25,10 @@ setup(name='xiru.alchemyform',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'five.grok',
+          'z3c.saconfig',
+          'MySQL-python',
+          'plone.directives.form',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
