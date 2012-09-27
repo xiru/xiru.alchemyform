@@ -5,7 +5,7 @@
 <utilities>
 <utility
   interface="z3c.saconfig.interfaces.IEngineFactory"
-  factory="xiru.alchemyform.saconfig.SPDOEngineFactory" 
+  factory="xiru.alchemyform.saconfig.AlchemyFormEngineFactory" 
   name="alchemyform_engine" />
 </utilities>
 </componentregistry>

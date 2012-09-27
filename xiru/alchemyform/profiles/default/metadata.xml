@@ -3,6 +3,5 @@
   <version>1000</version>
     <dependencies>
       <dependency>profile-collective.saconnect:default</dependency>
-      <dependency>profile-plone.app.z3cform:default</dependency>
     </dependencies>
 </metadata>

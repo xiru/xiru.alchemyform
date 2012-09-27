@@ -44,18 +44,6 @@ class Pessoa(Base):
     def __repr__(self):
         return "<Pessoa:%s>" % self.email
 
-class Log(Base):
-    __tablename__ = 'log'
-    __table_args__ = TABLE_ARGS
-    id = Column(Integer, primary_key=True)
-    usuario = Column(String(254), nullable=False)
-    url = Column(Text(), nullable=False)
-    modulo = Column(Text())
-    classe = Column(Text())
-    funcao = Column(Text())
-    args = Column(Text())
-    kwargs = Column(Text())
-
 if __name__ == '__main__':
 
     if CREATE_ALL_TABLES:
