@@ -28,6 +28,7 @@ setup(name='xiru.alchemyform',
           'five.grok',
           'z3c.saconfig',
           'MySQL-python',
+          'collective.saconnect',
           'plone.directives.form',
           # -*- Extra requirements: -*-
       ],
