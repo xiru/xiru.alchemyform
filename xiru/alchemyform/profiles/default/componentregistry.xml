@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<componentregistry>
+<adapters/>
+<subscribers/>
+<utilities>
+<utility
+  interface="z3c.saconfig.interfaces.IEngineFactory"
+  factory="xiru.alchemyform.saconfig.SPDOEngineFactory" 
+  name="alchemyform_engine" />
+</utilities>
+</componentregistry>
