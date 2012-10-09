@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
+from getopt import getopt, GetoptError
 from sqlalchemy.ext.declarative import declarative_base
 from xiru.alchemyform.history_meta import VersionedMeta, VersionedListener
 from sqlalchemy import create_engine, Table, Column, Integer, String, Text, Boolean, ForeignKey, func
@@ -12,8 +13,19 @@ from sqlalchemy.orm import relationship, backref, sessionmaker
 
 Base = declarative_base(metaclass=VersionedMeta)
 
+def build_engine(dsn=DEFAULT_DSN):
+    try:
+        args = getopt(sys.argv[1:],'d:')
+        if args is not None:
+            dsn = args[0][0][1]
+        print "Custom DSN configured: %s" % dsn
+    except GetoptError, e:
+        print "Invalid parameter: %s" % str(e)
+        sys.exit(1)
+    return create_engine(dsn)
+
 if __name__ == '__main__':
-    engine = create_engine(DEFAULT_DSN)
+    engine = build_engine()
     Session = sessionmaker(bind=engine, extension=VersionedListener())
 
 class UF(Base):
