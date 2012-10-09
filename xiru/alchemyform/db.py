@@ -74,7 +74,7 @@ if __name__ == '__main__':
           PA Pará
           PB Paraíba
           PR Paraná
-          PE Pernanbuco
+          PE Pernambuco
           PI Piauí
           RJ Rio de Janeiro
           RN Rio Grande do Norte
@@ -86,7 +86,7 @@ if __name__ == '__main__':
           SE Sergipe
           TO Tocantins
           """
-    UFs = [{'sigla':uf.strip().split()[0], 
+    UFs = [{'sigla':uf.strip().split()[0],
             'nome':" ".join(uf.strip().split()[1:])} \
             for uf in UFs.split('\n') if uf.strip()]
     for uf in UFs:
@@ -94,13 +94,13 @@ if __name__ == '__main__':
         session.add(uf1)
 
     # Pessoa
-    ps1 = Pessoa(nome=u'Xiru', 
-                 email=u'xiru@xiru.org', 
+    ps1 = Pessoa(nome=u'Xiru',
+                 email=u'xiru@xiru.org',
                  tipopessoa='F')
     session.add(ps1)
-    ps2 = Pessoa(nome=u'Tião Macalé', 
+    ps2 = Pessoa(nome=u'Tião Macalé',
                  email=u'tiao@macale.net',
-                 uf_id=4, 
+                 uf_id=4,
                  tipopessoa='F')
     session.add(ps2)
 
