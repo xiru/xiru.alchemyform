@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <connections>
- <connection name="alchemyform" string="mysql://root:root@localhost/agenda?charset=utf8" />
+ <connection name="alchemyform" string="mysql://root:root@localhost/alchemy_form?charset=utf8" />
 </connections>

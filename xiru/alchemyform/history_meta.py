@@ -56,7 +56,7 @@ def _history_mapper(local_mapper):
             super_fks.append(('version_date', super_history_mapper.base_mapper.local_table.c.version_date))
         cols.append(Column('version', Integer, primary_key=True))
         cols.append(Column('version_date', DateTime, default=datetime.datetime.now(), nullable=False))
-        
+
         if super_fks:
             cols.append(ForeignKeyConstraint(*zip(*super_fks)))
 
@@ -80,9 +80,9 @@ def _history_mapper(local_mapper):
     versioned_cls = type.__new__(type, "%sHistory" % cls.__name__, bases, {})
 
     m = mapper(
-            versioned_cls, 
-            table, 
-            inherits=super_history_mapper, 
+            versioned_cls,
+            table,
+            inherits=super_history_mapper,
             polymorphic_on=polymorphic_on,
             polymorphic_identity=local_mapper.polymorphic_identity
             )
@@ -108,7 +108,7 @@ def versioned_objects(iter):
         if hasattr(obj, '__history_mapper__'):
             yield obj
 
-            
+
 def create_version(obj, session, deleted = False):
     obj_mapper = object_mapper(obj)
     history_mapper = obj.__history_mapper__
@@ -137,9 +137,9 @@ def create_version(obj, session, deleted = False):
             try:
                 prop = obj_mapper.get_property_by_column(obj_col)
             except UnmappedColumnError:
-                # in the case of single table inheritance, there may be 
+                # in the case of single table inheritance, there may be
                 # columns on the mapped table intended for the subclass only.
-                # the "unmapped" status of the subclass column on the 
+                # the "unmapped" status of the subclass column on the
                 # base class is a feature of the declarative module as of sqla 0.5.2.
                 continue
 
@@ -181,7 +181,7 @@ def create_version(obj, session, deleted = False):
     obj.version += 1
     obj.version_date = datetime.datetime.now()
 
-    
+
 class VersionedListener(SessionExtension):
     def before_flush(self, session, flush_context, instances):
         for obj in versioned_objects(session.dirty):

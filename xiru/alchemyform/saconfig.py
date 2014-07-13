@@ -35,4 +35,9 @@ def ScopeID():
 class AlchemyFormSiteScopedSession(SiteScopedSession):
     def siteScopeFunc(self):
         return ScopeID()
-provideUtility(AlchemyFormSiteScopedSession(u'alchemyform_engine', extension=ZopeVersionedExtension()), provides=IScopedSession, name=u'alchemyform_session')
+
+provideUtility(AlchemyFormSiteScopedSession(u'alchemyform_engine', 
+        extension=ZopeVersionedExtension()),
+        provides=IScopedSession,
+        name=u'alchemyform_session'
+    )
